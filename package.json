@@ -1,0 +1,53 @@
+{
+    "name": "vamtiger-bundle-typescript",
+    "version": "0.0.1",
+    "description": "Bundle typescript source into a single file.",
+    "main": "build",
+    "types": "build/types/index.d.ts",
+    "bin": {
+        "vamtiger-bundle-typescript": "build/bin/index.js"
+    },
+    "scripts": {
+        "test": "mocha build/test --recursive",
+        "build": "tsc",
+        "commit": "vamtigerNodeTypescriptCommit --push --publish"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/vamtiger-project/vamtiger-bundle-typescript.git"
+    },
+    "keywords": [
+        "vamtiger",
+        "bundle",
+        "typescript"
+    ],
+    "author": "Vamtiger Immortalles",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/vamtiger-project/vamtiger-bundle-typescript/issues"
+    },
+    "homepage": "https://github.com/vamtiger-project/vamtiger-bundle-typescript#readme",
+    "devDependencies": {
+        "@types/acorn": "^4.0.3",
+        "@types/chai": "^4.1.2",
+        "@types/chokidar": "^1.7.5",
+        "@types/mocha": "^2.2.48",
+        "@types/node": "^9.4.7",
+        "chai": "^4.1.2",
+        "magic-string": "^0.22.4",
+        "mocha": "^5.0.4",
+        "source-map": "^0.7.2",
+        "typescript": "^2.7.2",
+        "vamtiger-bash": "0.0.16",
+        "vamtiger-create-file": "0.0.7",
+        "vamtiger-get-file-data": "0.0.4",
+        "vamtiger-node-typescript-commit": "0.0.51"
+    },
+    "dependencies": {
+        "rollup": "^0.56.5",
+        "rollup-plugin-typescript": "^0.8.1",
+        "rollup-plugin-typescript2": "^0.12.0",
+        "rollup-plugin-uglify": "^3.0.0",
+        "vamtiger-argv": "^1.2.3"
+    }
+}
