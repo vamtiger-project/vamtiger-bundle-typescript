@@ -1,6 +1,6 @@
 {
     "name": "vamtiger-bundle-typescript",
-    "version": "0.0.3",
+    "version": "0.0.4-0",
     "description": "Bundle typescript source into a single file.",
     "main": "build",
     "types": "build/types/index.d.ts",
@@ -10,7 +10,7 @@
     "scripts": {
         "test": "mocha build/test --recursive",
         "build": "tsc",
-        "commit": "vamtigerNodeTypescriptCommit --push --publish"
+        "commit": "vamtigerNodeTypescriptCommit --push --publish --keepTsConfig"
     },
     "repository": {
         "type": "git",
