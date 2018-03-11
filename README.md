@@ -41,8 +41,8 @@ vamtiger-bundle-typescript --relativePath --entryFilePath source/index.ts --bund
 ```json
     ...
     scripts: {
-        "bundle": "vamtiger-bundle-typescript --relativePath --entryFilePath source/index.ts --bundleFilePath build/bundle.js --format iife --sourcemap inline --watch --minify",
-        "watch": "vamtiger-bundle-typescript --relativePath --entryFilePath source/index.ts --bundleFilePath build/bundle.js --format iife --sourcemap inline --watch --minify"
+        "bundle": "vamtiger-bundle-typescript --relativePath --entryFilePath source/index.ts --bundleFilePath build/bundle.js --format iife --sourcemap inline --minify",
+        "watch": "vamtiger-bundle-typescript --relativePath --entryFilePath source/index.ts --bundleFilePath build/bundle.js --format iife --sourcemap inline --minify --watch"
     }
     ...
 ```
