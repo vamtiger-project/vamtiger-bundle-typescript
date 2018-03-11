@@ -28,6 +28,7 @@ export enum SourceMap {
 export enum CommandlineArgs {
     entryFilePath = 'entryFilePath',
     bundleFilePath = 'bundleFilePath',
+    copyBundleFilePath = 'copyBundleFilePath',
     format = 'format',
     sourcemap = 'sourcemap',
     bundleName = 'bundleName',

@@ -16,6 +16,7 @@ var CommandlineArgs;
 (function (CommandlineArgs) {
     CommandlineArgs["entryFilePath"] = "entryFilePath";
     CommandlineArgs["bundleFilePath"] = "bundleFilePath";
+    CommandlineArgs["copyBundleFilePath"] = "copyBundleFilePath";
     CommandlineArgs["format"] = "format";
     CommandlineArgs["sourcemap"] = "sourcemap";
     CommandlineArgs["bundleName"] = "bundleName";

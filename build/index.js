@@ -11,10 +11,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const typescript = require("typescript");
 const rollup_1 = require("rollup");
 const Args = require("vamtiger-argv");
+const vamtiger_copy_file_1 = require("vamtiger-copy-file");
 const types_1 = require("./types");
 const rollupTypescript = require('rollup-plugin-typescript');
 const uglify = require('rollup-plugin-uglify');
 const args = new Args();
+const copyBundleFilePath = args.get(types_1.CommandlineArgs.copyBundleFilePath) || '';
 const typescriptConfiguration = {
     typescript,
     module: types_1.TypescriptConfigurationModule.ES2015.toLowerCase()
@@ -43,8 +45,15 @@ exports.default = (params) => __awaiter(this, void 0, void 0, function* () {
         sourcemap,
         name: bundleName,
     };
+    const copyFileConfiguration = copyBundleFilePath && {
+        source: bundleFilePath,
+        destination: copyBundleFilePath
+    };
     const bundle = yield rollup_1.rollup(bundleConfiguration);
     const exportBundle = yield bundle.write(exportConfigurations);
+    let exportBundleCopy;
+    if (copyFileConfiguration)
+        yield vamtiger_copy_file_1.default(copyFileConfiguration);
     return true;
 });
 var types_2 = require("./types");

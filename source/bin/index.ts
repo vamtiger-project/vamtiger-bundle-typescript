@@ -28,7 +28,7 @@ const bundleFilePath = relativePath &&
         args.get(CommandlineArgs.bundleFilePath) as string
     )
     ||
-    args.get(CommandlineArgs.bundleFilePath) as PathLike; 
+    args.get(CommandlineArgs.bundleFilePath) as PathLike;
 const format = args.get(CommandlineArgs.format) as Format; 
 const sourcemap = args.get(CommandlineArgs.sourcemap) as SourceMap | boolean; 
 const bundleName = args.get(CommandlineArgs.bundleName);
