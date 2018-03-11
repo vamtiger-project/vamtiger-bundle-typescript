@@ -57,4 +57,4 @@ Output formats of the compiled result include:
 Sourcemap can be set to:
 * inline
 * true
-* false
+* false 
