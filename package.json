@@ -46,7 +46,6 @@
     "dependencies": {
         "rollup": "^0.56.5",
         "rollup-plugin-typescript": "^0.8.1",
-        "rollup-plugin-typescript2": "^0.12.0",
         "rollup-plugin-uglify": "^3.0.0",
         "vamtiger-argv": "^1.2.3",
         "vamtiger-copy-file": "0.0.9"
