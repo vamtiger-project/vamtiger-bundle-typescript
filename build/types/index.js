@@ -27,7 +27,7 @@ var CommandlineArgs;
 })(CommandlineArgs = exports.CommandlineArgs || (exports.CommandlineArgs = {}));
 var BundleName;
 (function (BundleName) {
-    BundleName["bundle"] = "bundle";
+    BundleName["bundle"] = "index";
 })(BundleName = exports.BundleName || (exports.BundleName = {}));
 var TypescriptConfigurationModule;
 (function (TypescriptConfigurationModule) {

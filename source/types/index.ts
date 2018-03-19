@@ -41,7 +41,7 @@ export enum CommandlineArgs {
 }
 
 export enum BundleName {
-    bundle = 'bundle'
+    bundle = 'index'
 }
 
 export enum TypescriptConfigurationModule {

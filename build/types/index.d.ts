@@ -36,7 +36,7 @@ export declare enum CommandlineArgs {
     relativePath = "relativePath",
 }
 export declare enum BundleName {
-    bundle = "bundle",
+    bundle = "index",
 }
 export declare enum TypescriptConfigurationModule {
     ES2015 = "ES2015",
