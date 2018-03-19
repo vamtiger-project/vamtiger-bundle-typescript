@@ -39,8 +39,7 @@ exports.default = (params) => __awaiter(this, void 0, void 0, function* () {
         plugins,
         acorn: {
             allowReserved: true
-        },
-        name: bundleName
+        }
     };
     const exportConfigurations = {
         file: bundleFilePath,
@@ -63,8 +62,7 @@ exports.default = (params) => __awaiter(this, void 0, void 0, function* () {
         yield vamtiger_copy_file_1.default(copyFileParams);
     if (copyFileSourceMapParams)
         yield vamtiger_copy_file_1.default(copyFileSourceMapParams);
-    console.log(bundleConfiguration);
-    console.log(exportConfigurations);
+    consoel.log();
     return true;
 });
 var types_2 = require("./types");
