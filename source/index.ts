@@ -33,6 +33,7 @@ export default async (params: Params) => {
     const format = params.format || Format.iife;
     const copySourceMap = params.copySourceMap;
     const copyBundleFilePath = params.copyBundleFilePath;
+    const bundleFileSourceMaspPath = bundleFilePath && `${params.bundleFilePath}.map`;
     const copyBundleFileSourceMapPath = copySourceMap && copyBundleFilePath && `${copyBundleFilePath}.map`; 
     const bundleName = format === Format.iife && !params.bundleName ? Name.bundle : params.bundleName;
     const bundleConfiguration = {
@@ -53,7 +54,7 @@ export default async (params: Params) => {
         destination: copyBundleFilePath
     };
     const copyFileSourceMapParams = copyBundleFileSourceMapPath && {
-        source: bundleFilePath,
+        source: bundleFileSourceMaspPath,
         destination: copyBundleFileSourceMapPath
     };
     const bundle = await createBundle(bundleConfiguration);
