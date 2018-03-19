@@ -27,7 +27,6 @@ if (args.has(CommandlineArgs.minify))
     plugins.push(uglify());
 
 export default async (params: Params) => {
-    console.log(params);
     const entryFilePath = params.entryFilePath as string;
     const bundleFilePath = params.bundleFilePath as string;
     const sourcemap = params.sourcemap;
@@ -68,7 +67,8 @@ export default async (params: Params) => {
     if (copyFileSourceMapParams)
         await copyFile(copyFileSourceMapParams);
 
-    console.log(copyFileSourceMapParams);
+    console.log(params);
+    console.log([copyFileSourceMapParams]);
 
     return true;
 };

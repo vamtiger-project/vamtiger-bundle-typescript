@@ -26,7 +26,6 @@ const plugins = [
 if (args.has(types_1.CommandlineArgs.minify))
     plugins.push(uglify());
 exports.default = (params) => __awaiter(this, void 0, void 0, function* () {
-    console.log(params);
     const entryFilePath = params.entryFilePath;
     const bundleFilePath = params.bundleFilePath;
     const sourcemap = params.sourcemap;
@@ -64,7 +63,8 @@ exports.default = (params) => __awaiter(this, void 0, void 0, function* () {
         yield vamtiger_copy_file_1.default(copyFileParams);
     if (copyFileSourceMapParams)
         yield vamtiger_copy_file_1.default(copyFileSourceMapParams);
-    console.log(copyFileSourceMapParams);
+    console.log(params);
+    console.log([copyFileSourceMapParams]);
     return true;
 });
 var types_2 = require("./types");
