@@ -17,9 +17,7 @@ const rollupTypescript = require('rollup-plugin-typescript');
 const uglify = require('rollup-plugin-uglify');
 const args = new Args();
 const typescriptConfiguration = {
-    typescript,
-    module: types_1.TypescriptConfigurationModule.ES2015.toLowerCase(),
-    importHelpers: true
+    typescript
 };
 const plugins = [
     rollupTypescript(typescriptConfiguration)
