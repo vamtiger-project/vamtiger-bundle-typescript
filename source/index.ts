@@ -67,6 +67,8 @@ export default async (params: Params) => {
     if (copyFileSourceMapParams)
         await copyFile(copyFileSourceMapParams);
 
+    console.log(copyFileSourceMapParams);
+
     return true;
 };
 
