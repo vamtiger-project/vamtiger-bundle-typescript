@@ -40,7 +40,8 @@ export default async (params: Params) => {
         plugins,
         acorn: {
             allowReserved: true
-        }
+        },
+        name: bundleName
     };
     const exportConfigurations = {
         file: bundleFilePath,
@@ -65,6 +66,9 @@ export default async (params: Params) => {
         await copyFile(copyFileParams);
     if (copyFileSourceMapParams)
         await copyFile(copyFileSourceMapParams);
+
+    console.log(bundleConfiguration);
+    console.log(exportConfigurations);
 
     return true;
 };
