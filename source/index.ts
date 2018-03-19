@@ -15,7 +15,6 @@ import {
 const rollupTypescript = require('rollup-plugin-typescript');
 const uglify = require('rollup-plugin-uglify');
 const args = new Args();
-const copyBundleFilePath = args.get(CommandlineArgs.copyBundleFilePath) || '';
 const typescriptConfiguration = {
     typescript,
     module: TsModule.ES2015.toLowerCase()
@@ -32,6 +31,9 @@ export default async (params: Params) => {
     const bundleFilePath = params.bundleFilePath as string;
     const sourcemap = params.sourcemap;
     const format = params.format || Format.iife;
+    const copySourceMap = params.copySourceMap;
+    const copyBundleFilePath = params.copyBundleFilePath;
+    const copyBundleFileSourceMapPath = copySourceMap && copyBundleFilePath && `${copyBundleFilePath}.map`; 
     const bundleName = format === Format.iife && !params.bundleName ? Name.bundle : params.bundleName;
     const bundleConfiguration = {
         input: entryFilePath,
@@ -46,17 +48,23 @@ export default async (params: Params) => {
         sourcemap,
         name: bundleName,
     };
-    const copyFileConfiguration = copyBundleFilePath && {
+    const copyFileParams = copyBundleFilePath && {
         source: bundleFilePath,
         destination: copyBundleFilePath
+    };
+    const copyFileSourceMapParams = copyBundleFileSourceMapPath && {
+        source: bundleFilePath,
+        destination: copyBundleFileSourceMapPath
     };
     const bundle = await createBundle(bundleConfiguration);
     const exportBundle = await bundle.write(exportConfigurations);
 
     let exportBundleCopy;
 
-    if (copyFileConfiguration)
-        await copyFile(copyFileConfiguration);
+    if (copyFileParams)
+        await copyFile(copyFileParams);
+    if (copyFileSourceMapParams)
+        await copyFile(copyFileSourceMapParams);
 
     return true;
 };

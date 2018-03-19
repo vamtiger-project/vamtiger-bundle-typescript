@@ -32,9 +32,20 @@ const bundleFilePath = relativePath &&
 const format = args.get(CommandlineArgs.format) as Format; 
 const sourcemap = args.get(CommandlineArgs.sourcemap) as SourceMap | boolean; 
 const bundleName = args.get(CommandlineArgs.bundleName);
+const copyBundleFilePath = args.get(CommandlineArgs.copyBundleFilePath) || '';
+const copySourceMap = args.has(CommandlineArgs.copySourceMap);
 const watch = args.has(CommandlineArgs.watch);
 const watchOptions = {
     recursive: true
+};
+const bundleParams = {
+    entryFilePath,
+    bundleFilePath,
+    format,
+    sourcemap,
+    bundleName,
+    copySourceMap,
+    copyBundleFilePath
 };
 
 if (!entryFilePath) 
@@ -62,11 +73,5 @@ async function createBundle(eventType?: string, fileName?: string) {
         });
     
     if (generateTypescriptBundle)
-        bundleTypescript({
-            entryFilePath,
-            bundleFilePath,
-            format,
-            sourcemap,
-            bundleName
-        });
+        bundleTypescript(bundleParams);
 }
