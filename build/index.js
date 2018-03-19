@@ -26,13 +26,14 @@ const plugins = [
 if (args.has(types_1.CommandlineArgs.minify))
     plugins.push(uglify());
 exports.default = (params) => __awaiter(this, void 0, void 0, function* () {
+    console.log(params);
     const entryFilePath = params.entryFilePath;
     const bundleFilePath = params.bundleFilePath;
     const sourcemap = params.sourcemap;
     const format = params.format || types_1.Format.iife;
     const copySourceMap = params.copySourceMap;
     const copyBundleFilePath = params.copyBundleFilePath;
-    const bundleFileSourceMaspPath = bundleFilePath && `${params.bundleFilePath}.map`;
+    const bundleFileSourceMapPath = bundleFilePath && `${params.bundleFilePath}.map`;
     const copyBundleFileSourceMapPath = copySourceMap && copyBundleFilePath && `${copyBundleFilePath}.map`;
     const bundleName = format === types_1.Format.iife && !params.bundleName ? types_1.BundleName.bundle : params.bundleName;
     const bundleConfiguration = {
@@ -53,7 +54,7 @@ exports.default = (params) => __awaiter(this, void 0, void 0, function* () {
         destination: copyBundleFilePath
     };
     const copyFileSourceMapParams = copyBundleFileSourceMapPath && {
-        source: bundleFileSourceMaspPath,
+        source: bundleFileSourceMapPath,
         destination: copyBundleFileSourceMapPath
     };
     const bundle = yield rollup_1.rollup(bundleConfiguration);

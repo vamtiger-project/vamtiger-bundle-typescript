@@ -27,13 +27,14 @@ if (args.has(CommandlineArgs.minify))
     plugins.push(uglify());
 
 export default async (params: Params) => {
+    console.log(params);
     const entryFilePath = params.entryFilePath as string;
     const bundleFilePath = params.bundleFilePath as string;
     const sourcemap = params.sourcemap;
     const format = params.format || Format.iife;
     const copySourceMap = params.copySourceMap;
     const copyBundleFilePath = params.copyBundleFilePath;
-    const bundleFileSourceMaspPath = bundleFilePath && `${params.bundleFilePath}.map`;
+    const bundleFileSourceMapPath = bundleFilePath && `${params.bundleFilePath}.map`;
     const copyBundleFileSourceMapPath = copySourceMap && copyBundleFilePath && `${copyBundleFilePath}.map`; 
     const bundleName = format === Format.iife && !params.bundleName ? Name.bundle : params.bundleName;
     const bundleConfiguration = {
@@ -54,7 +55,7 @@ export default async (params: Params) => {
         destination: copyBundleFilePath
     };
     const copyFileSourceMapParams = copyBundleFileSourceMapPath && {
-        source: bundleFileSourceMaspPath,
+        source: bundleFileSourceMapPath,
         destination: copyBundleFileSourceMapPath
     };
     const bundle = await createBundle(bundleConfiguration);
