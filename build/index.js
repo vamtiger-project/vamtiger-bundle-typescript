@@ -63,7 +63,6 @@ exports.default = (params) => __awaiter(this, void 0, void 0, function* () {
         yield vamtiger_copy_file_1.default(copyFileParams);
     if (copyFileSourceMapParams)
         yield vamtiger_copy_file_1.default(copyFileSourceMapParams);
-    consoel.log();
     return true;
 });
 var types_2 = require("./types");

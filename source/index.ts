@@ -67,8 +67,6 @@ export default async (params: Params) => {
     if (copyFileSourceMapParams)
         await copyFile(copyFileSourceMapParams);
 
-    consoel.log()
-
     return true;
 };
 
