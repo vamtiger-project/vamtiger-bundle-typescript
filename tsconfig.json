@@ -10,7 +10,8 @@
       "noImplicitThis": true,
       "alwaysStrict": true,
       "sourceMap": true,
-      "declaration": true
+      "declaration": true,
+      "importHelpers": true
     },
     "include": [
           "source/**/*"

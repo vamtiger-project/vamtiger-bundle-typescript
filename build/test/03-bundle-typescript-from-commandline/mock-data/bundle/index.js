@@ -1,4 +1,4 @@
-var bundle = (function () {
+var index = (function () {
 'use strict';
 
 const kasha = 'Kasha!';
