@@ -1,6 +1,6 @@
 {
     "name": "vamtiger-bundle-typescript",
-    "version": "0.0.18-0",
+    "version": "0.0.19-0",
     "description": "Bundle typescript source into a single file.",
     "main": "build",
     "types": "build/types/index.d.ts",
