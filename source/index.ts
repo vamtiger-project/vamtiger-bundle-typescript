@@ -41,7 +41,7 @@ export default async (params: Params) => {
         acorn: {
             allowReserved: true
         },
-        external: ["tslib"]
+        mportHelpers: true
     };
     const exportConfigurations = {
         file: bundleFilePath,
