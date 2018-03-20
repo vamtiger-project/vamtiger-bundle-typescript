@@ -39,7 +39,8 @@ exports.default = (params) => __awaiter(this, void 0, void 0, function* () {
         plugins,
         acorn: {
             allowReserved: true
-        }
+        },
+        external: ["tslib"]
     };
     const exportConfigurations = {
         file: bundleFilePath,

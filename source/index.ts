@@ -40,7 +40,8 @@ export default async (params: Params) => {
         plugins,
         acorn: {
             allowReserved: true
-        }
+        },
+        external: ["tslib"]
     };
     const exportConfigurations = {
         file: bundleFilePath,
