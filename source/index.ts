@@ -16,26 +16,7 @@ const rollupTypescript = require('rollup-plugin-typescript');
 const uglify = require('rollup-plugin-uglify');
 const args = new Args();
 const typescriptConfiguration = {
-    typescript,
-    tsconfig: {
-        "compileOnSave": true,
-        "compilerOptions": {
-          "target": "es5",
-          "lib": [ 
-            "es2015",
-            "dom"
-          ],
-          "module": "commonjs",
-          "outDir": "build",
-          "noImplicitAny": true,
-          "sourceMap": true,
-          "declaration": true,
-          "importHelpers": true
-        },
-        "include": [
-              "source/**/*"
-        ]
-      }
+    typescript
 };
 const plugins = [
     rollupTypescript(typescriptConfiguration)
