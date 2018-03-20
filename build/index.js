@@ -40,7 +40,7 @@ exports.default = (params) => __awaiter(this, void 0, void 0, function* () {
         acorn: {
             allowReserved: true
         },
-        mportHelpers: true
+        importHelpers: true
     };
     const exportConfigurations = {
         file: bundleFilePath,

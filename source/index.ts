@@ -41,7 +41,7 @@ export default async (params: Params) => {
         acorn: {
             allowReserved: true
         },
-        mportHelpers: true
+        importHelpers: true
     };
     const exportConfigurations = {
         file: bundleFilePath,
