@@ -16,10 +16,8 @@ const types_1 = require("./types");
 const rollupTypescript = require('rollup-plugin-typescript');
 const uglify = require('rollup-plugin-uglify');
 const args = new Args();
-const copyBundleFilePath = args.get(types_1.CommandlineArgs.copyBundleFilePath) || '';
 const typescriptConfiguration = {
-    typescript,
-    module: types_1.TypescriptConfigurationModule.ES2015.toLowerCase()
+    typescript
 };
 const plugins = [
     rollupTypescript(typescriptConfiguration)
@@ -31,6 +29,10 @@ exports.default = (params) => __awaiter(this, void 0, void 0, function* () {
     const bundleFilePath = params.bundleFilePath;
     const sourcemap = params.sourcemap;
     const format = params.format || types_1.Format.iife;
+    const copySourceMap = params.copySourceMap;
+    const copyBundleFilePath = params.copyBundleFilePath;
+    const bundleFileSourceMapPath = bundleFilePath && `${params.bundleFilePath}.map`;
+    const copyBundleFileSourceMapPath = copySourceMap && copyBundleFilePath && `${copyBundleFilePath}.map`;
     const bundleName = format === types_1.Format.iife && !params.bundleName ? types_1.BundleName.bundle : params.bundleName;
     const bundleConfiguration = {
         input: entryFilePath,
@@ -45,15 +47,21 @@ exports.default = (params) => __awaiter(this, void 0, void 0, function* () {
         sourcemap,
         name: bundleName,
     };
-    const copyFileConfiguration = copyBundleFilePath && {
+    const copyFileParams = copyBundleFilePath && {
         source: bundleFilePath,
         destination: copyBundleFilePath
+    };
+    const copyFileSourceMapParams = copyBundleFileSourceMapPath && {
+        source: bundleFileSourceMapPath,
+        destination: copyBundleFileSourceMapPath
     };
     const bundle = yield rollup_1.rollup(bundleConfiguration);
     const exportBundle = yield bundle.write(exportConfigurations);
     let exportBundleCopy;
-    if (copyFileConfiguration)
-        yield vamtiger_copy_file_1.default(copyFileConfiguration);
+    if (copyFileParams)
+        yield vamtiger_copy_file_1.default(copyFileParams);
+    if (copyFileSourceMapParams)
+        yield vamtiger_copy_file_1.default(copyFileSourceMapParams);
     return true;
 });
 var types_2 = require("./types");

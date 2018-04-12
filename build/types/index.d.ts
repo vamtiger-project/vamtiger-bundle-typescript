@@ -6,6 +6,8 @@ export interface MainParams {
     format: Format;
     sourcemap?: SourceMap | boolean;
     bundleName?: string;
+    copySourceMap?: boolean;
+    copyBundleFilePath?: string;
 }
 export interface LogParams {
     eventType: string;
@@ -25,6 +27,7 @@ export declare enum CommandlineArgs {
     entryFilePath = "entryFilePath",
     bundleFilePath = "bundleFilePath",
     copyBundleFilePath = "copyBundleFilePath",
+    copySourceMap = "copySourceMap",
     format = "format",
     sourcemap = "sourcemap",
     bundleName = "bundleName",
@@ -33,7 +36,7 @@ export declare enum CommandlineArgs {
     relativePath = "relativePath",
 }
 export declare enum BundleName {
-    bundle = "bundle",
+    bundle = "index",
 }
 export declare enum TypescriptConfigurationModule {
     ES2015 = "ES2015",

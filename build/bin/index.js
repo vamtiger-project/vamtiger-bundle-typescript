@@ -30,9 +30,20 @@ const bundleFilePath = relativePath &&
 const format = args.get(types_1.CommandlineArgs.format);
 const sourcemap = args.get(types_1.CommandlineArgs.sourcemap);
 const bundleName = args.get(types_1.CommandlineArgs.bundleName);
+const copyBundleFilePath = args.get(types_1.CommandlineArgs.copyBundleFilePath) || '';
+const copySourceMap = args.has(types_1.CommandlineArgs.copySourceMap);
 const watch = args.has(types_1.CommandlineArgs.watch);
 const watchOptions = {
     recursive: true
+};
+const bundleParams = {
+    entryFilePath,
+    bundleFilePath,
+    format,
+    sourcemap,
+    bundleName,
+    copySourceMap,
+    copyBundleFilePath
 };
 if (!entryFilePath)
     throw new Error('No entry file specified');
@@ -56,13 +67,7 @@ function createBundle(eventType, fileName) {
                 fileName
             });
         if (generateTypescriptBundle)
-            __1.default({
-                entryFilePath,
-                bundleFilePath,
-                format,
-                sourcemap,
-                bundleName
-            });
+            __1.default(bundleParams);
     });
 }
 //# sourceMappingURL=index.js.map
