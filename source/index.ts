@@ -40,8 +40,7 @@ export default async (params: Params) => {
         plugins,
         acorn: {
             allowReserved: true
-        },
-        importHelpers: true
+        }
     };
     const exportConfigurations = {
         file: bundleFilePath,

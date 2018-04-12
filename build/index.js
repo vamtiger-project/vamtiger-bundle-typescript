@@ -39,8 +39,7 @@ exports.default = (params) => __awaiter(this, void 0, void 0, function* () {
         plugins,
         acorn: {
             allowReserved: true
-        },
-        importHelpers: true
+        }
     };
     const exportConfigurations = {
         file: bundleFilePath,
