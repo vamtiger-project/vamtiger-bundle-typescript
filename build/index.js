@@ -12,6 +12,8 @@ const typescript = require("typescript");
 const rollup_1 = require("rollup");
 const Args = require("vamtiger-argv");
 const vamtiger_copy_file_1 = require("vamtiger-copy-file");
+const vamtiger_get_file_text_1 = require("vamtiger-get-file-text");
+const vamtiger_create_file_1 = require("vamtiger-create-file");
 const types_1 = require("./types");
 const rollupTypescript = require('rollup-plugin-typescript');
 const uglify = require('rollup-plugin-uglify');
@@ -22,8 +24,9 @@ const typescriptConfiguration = {
 const plugins = [
     rollupTypescript(typescriptConfiguration)
 ];
-if (args.has(types_1.CommandlineArgs.minify))
+if (args.has(types_1.CommandlineArgs.minify)) {
     plugins.push(uglify());
+}
 exports.default = (params) => __awaiter(this, void 0, void 0, function* () {
     const entryFilePath = params.entryFilePath;
     const bundleFilePath = params.bundleFilePath;
@@ -31,6 +34,7 @@ exports.default = (params) => __awaiter(this, void 0, void 0, function* () {
     const format = params.format || types_1.Format.iife;
     const copySourceMap = params.copySourceMap;
     const copyBundleFilePath = params.copyBundleFilePath;
+    const bin = params.bin;
     const bundleFileSourceMapPath = bundleFilePath && `${params.bundleFilePath}.map`;
     const copyBundleFileSourceMapPath = copySourceMap && copyBundleFilePath && `${copyBundleFilePath}.map`;
     const bundleName = format === types_1.Format.iife && !params.bundleName ? types_1.BundleName.bundle : params.bundleName;
@@ -57,11 +61,18 @@ exports.default = (params) => __awaiter(this, void 0, void 0, function* () {
     };
     const bundle = yield rollup_1.rollup(bundleConfiguration);
     const exportBundle = yield bundle.write(exportConfigurations);
-    let exportBundleCopy;
-    if (copyFileParams)
+    let exportBundleText;
+    if (copyFileParams) {
         yield vamtiger_copy_file_1.default(copyFileParams);
-    if (copyFileSourceMapParams)
+    }
+    if (copyFileSourceMapParams) {
         yield vamtiger_copy_file_1.default(copyFileSourceMapParams);
+    }
+    if (bin) {
+        exportBundleText = yield vamtiger_get_file_text_1.default(bundleFilePath);
+        exportBundleText = `${types_1.Shebang.node}\n${exportBundleText}`;
+        yield vamtiger_create_file_1.default(bundleFilePath, exportBundleText);
+    }
     return true;
 });
 var types_2 = require("./types");

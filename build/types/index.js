@@ -24,6 +24,7 @@ var CommandlineArgs;
     CommandlineArgs["minify"] = "minify";
     CommandlineArgs["watch"] = "watch";
     CommandlineArgs["relativePath"] = "relativePath";
+    CommandlineArgs["bin"] = "bin";
 })(CommandlineArgs = exports.CommandlineArgs || (exports.CommandlineArgs = {}));
 var BundleName;
 (function (BundleName) {
@@ -43,4 +44,8 @@ var FileExtension;
 (function (FileExtension) {
     FileExtension["ts"] = "ts";
 })(FileExtension = exports.FileExtension || (exports.FileExtension = {}));
+var Shebang;
+(function (Shebang) {
+    Shebang["node"] = "#!/usr/bin/env node";
+})(Shebang = exports.Shebang || (exports.Shebang = {}));
 //# sourceMappingURL=index.js.map
