@@ -4,17 +4,17 @@ import { dirname, extname as getExtension, resolve as resolvePath } from 'path';
 import Args = require('vamtiger-argv');
 import bundleTypescript from '..';
 import log from '../log';
-import { 
-    CommandlineArgs, 
-    Format, 
-    SourceMap, 
-    FileExtension,
+import {
+    CommandlineArgs,
+    Format,
+    SourceMap,
+    FileExtension
 } from '../types';
 
 const workingDirectory = process.cwd();
 const args = new Args();
 const relativePath = args.has(CommandlineArgs.relativePath);
-const entryFilePath = relativePath && 
+const entryFilePath = relativePath &&
     resolvePath(
         workingDirectory,
         args.get(CommandlineArgs.entryFilePath) as string
@@ -22,19 +22,20 @@ const entryFilePath = relativePath &&
     ||
     args.get(CommandlineArgs.entryFilePath) as PathLike;
 const entryFolderPath = entryFilePath && dirname(entryFilePath as string);
-const bundleFilePath = relativePath && 
+const bundleFilePath = relativePath &&
     resolvePath(
         workingDirectory,
         args.get(CommandlineArgs.bundleFilePath) as string
     )
     ||
     args.get(CommandlineArgs.bundleFilePath) as PathLike;
-const format = args.get(CommandlineArgs.format) as Format; 
-const sourcemap = args.get(CommandlineArgs.sourcemap) as SourceMap | boolean; 
+const format = args.get(CommandlineArgs.format) as Format;
+const sourcemap = args.get(CommandlineArgs.sourcemap) as SourceMap | boolean;
 const bundleName = args.get(CommandlineArgs.bundleName);
 const copyBundleFilePath = args.get(CommandlineArgs.copyBundleFilePath) || '';
 const copySourceMap = args.has(CommandlineArgs.copySourceMap);
 const watch = args.has(CommandlineArgs.watch);
+const bin = args.has(CommandlineArgs.bin);
 const watchOptions = {
     recursive: true
 };
@@ -45,33 +46,37 @@ const bundleParams = {
     sourcemap,
     bundleName,
     copySourceMap,
-    copyBundleFilePath
+    copyBundleFilePath,
+    bin
 };
 
-if (!entryFilePath) 
+if (!entryFilePath) {
     throw new Error('No entry file specified');
-else if(!bundleFilePath) 
+} else if(!bundleFilePath) {
     throw new Error('No bundle file specified');
-else if(watch)
+} else if(watch) {
     watchFolder(entryFolderPath, watchOptions, createBundle);
-else
+} else {
     createBundle();
+}
 
 async function createBundle(eventType?: string, fileName?: string) {
     const fileType = fileName && getExtension(fileName)
         .substring(1)
         .toLowerCase();
-    const generateTypescriptBundle = 
+    const generateTypescriptBundle =
         (!eventType && !fileName)
         ||
         fileType === FileExtension.ts;
 
-    if (eventType && fileName)
+    if (eventType && fileName) {
         log({
             eventType,
             fileName
         });
-    
-    if (generateTypescriptBundle)
+    }
+
+    if (generateTypescriptBundle) {
         bundleTypescript(bundleParams);
+    }
 }

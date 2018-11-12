@@ -8,6 +8,7 @@ export interface MainParams {
     bundleName?: string;
     copySourceMap?: boolean;
     copyBundleFilePath?: string;
+    bin?: boolean;
 }
 
 export interface LogParams {
@@ -37,7 +38,8 @@ export enum CommandlineArgs {
     bundleName = 'bundleName',
     minify = 'minify',
     watch = 'watch',
-    relativePath = 'relativePath'
+    relativePath = 'relativePath',
+    bin = 'bin'
 }
 
 export enum BundleName {
@@ -56,4 +58,8 @@ export enum TypescriptConfigurationModule {
 
 export enum FileExtension {
     ts = 'ts'
+}
+
+export enum Shebang {
+    node = '#!/usr/bin/env node'
 }
