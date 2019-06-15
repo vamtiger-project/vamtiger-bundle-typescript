@@ -1,1 +1,1 @@
-{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../../source/test/04-bundle-and-minify-typescript-from-commandline/mock-data/index.ts"],"names":[],"mappings":";;AAAa,QAAA,KAAK,GAAG,sKAYpB,CAAC,IAAI,EAAE,CAAC;AAEI,QAAA,KAAK,GAAG,sDAIpB,CAAC,IAAI,EAAE,CAAC"}
+{"version":3,"file":"index.js","sourceRoot":"","sources":["../../../../source/test/04-bundle-and-minify-typescript-from-commandline/mock-data/index.ts"],"names":[],"mappings":";;AAAa,QAAA,KAAK,GAAG,2KAYpB,CAAC,IAAI,EAAE,CAAC;AAEI,QAAA,KAAK,GAAG,sDAIpB,CAAC,IAAI,EAAE,CAAC"}
