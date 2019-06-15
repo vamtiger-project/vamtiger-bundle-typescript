@@ -74,17 +74,22 @@ var bundleParams = {
     copyBundleFilePath: copyBundleFilePath,
     bin: bin
 };
-if (!entryFilePath) {
-    throw new Error('No entry file specified');
+try {
+    if (!entryFilePath) {
+        throw new Error('No entry file specified');
+    }
+    else if (!bundleFilePath) {
+        throw new Error('No bundle file specified');
+    }
+    else if (watch) {
+        fs_1.watch(entryFolderPath, watchOptions, createBundle);
+    }
+    else {
+        createBundle();
+    }
 }
-else if (!bundleFilePath) {
-    throw new Error('No bundle file specified');
-}
-else if (watch) {
-    fs_1.watch(entryFolderPath, watchOptions, createBundle);
-}
-else {
-    createBundle();
+catch (error) {
+    handleError(error);
 }
 function createBundle(eventType, fileName) {
     return __awaiter(this, void 0, void 0, function () {
@@ -108,5 +113,11 @@ function createBundle(eventType, fileName) {
             return [2 /*return*/];
         });
     });
+}
+function handleError(error) {
+    console.log(error);
+    console.error(error.message);
+    console.error(error.stack);
+    console.log('*'.repeat(10));
 }
 //# sourceMappingURL=index.js.map
