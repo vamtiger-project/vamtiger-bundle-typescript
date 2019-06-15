@@ -1,6 +1,6 @@
 {
     "name": "vamtiger-bundle-typescript",
-    "version": "0.0.27",
+    "version": "0.0.30-0",
     "description": "Bundle typescript source into a single file.",
     "main": "build",
     "types": "build/types/index.d.ts",
@@ -43,7 +43,11 @@
         "vamtiger-node-typescript-commit": "0.0.51"
     },
     "dependencies": {
+        "@babel/core": "^7.4.5",
+        "@babel/plugin-transform-destructuring": "^7.4.4",
+        "babel-plugin-transform-es2015-destructuring": "^6.23.0",
         "rollup": "^0.56.5",
+        "rollup-plugin-babel": "^4.3.2",
         "rollup-plugin-typescript": "^0.8.1",
         "rollup-plugin-uglify": "^3.0.0",
         "tslib": "^1.9.0",

@@ -1,7 +1,4 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = (params) => console.log(`
-Event Type: ${params.eventType}
-File: ${params.fileName}
-`);
+exports.default = (function (params) { return console.log("\nEvent Type: " + params.eventType + "\nFile: " + params.fileName + "\n"); });
 //# sourceMappingURL=index.js.map

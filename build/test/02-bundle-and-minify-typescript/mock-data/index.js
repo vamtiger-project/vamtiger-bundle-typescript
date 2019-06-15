@@ -1,15 +1,5 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.booya = `
-import kasha from './kasha';
-
-const booyaKasha = \`Booya \${kasha}\`;
-
-export default booyaKasha;
-`.trim();
-exports.kasha = `
-const kasha = 'Kasha!';
-
-export default kasha;
-`.trim();
+exports.booya = "\nimport kasha from './kasha';\n\nconst booyaKasha = `Booya ${kasha}`;\n\nexport default booyaKasha;\n".trim();
+exports.kasha = "\nconst kasha = 'Kasha!';\n\nexport default kasha;\n".trim();
 //# sourceMappingURL=index.js.map
