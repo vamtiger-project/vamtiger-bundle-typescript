@@ -64,6 +64,8 @@ export default async (params: Params) => {
         destination: copyBundleFileSourceMapPath
     };
     const bundle = await createBundle(bundleConfiguration);
+    // const l = await bundle.generate(exportConfigurations);
+    // console.log(l.code);
     const exportBundle = await bundle.write(exportConfigurations);
 
     let exportBundleText: string;
