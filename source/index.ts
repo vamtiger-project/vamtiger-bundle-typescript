@@ -23,13 +23,14 @@ const typescriptConfiguration = {
     typescript
 };
 const plugins = [
-    rollupTypescript(typescriptConfiguration),
-    babel(config.babel)
+    rollupTypescript(typescriptConfiguration)
 ];
 
 if (args.has(CommandlineArgs.minify)) {
     plugins.push(uglify());
 }
+
+plugins.push(babel(config.babel));
 
 export default async (params: Params) => {
     const entryFilePath = params.entryFilePath as string;

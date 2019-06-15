@@ -3,7 +3,7 @@ import kasha from './kasha';
 
 const booyaKasha = \`Booya \${kasha}\`;
 
-const a = {b: 'b'};
+const a = {b: {c: 'c'}};
 
 const { b } = a;
 
