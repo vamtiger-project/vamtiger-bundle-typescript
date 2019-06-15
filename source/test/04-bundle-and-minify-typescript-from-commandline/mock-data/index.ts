@@ -6,8 +6,10 @@ const booyaKasha = \`Booya \${kasha}\`;
 const a = {b: {c: 'c'}};
 
 const { b } = a;
+const { c } = b;
 
 console.log(b);
+console.log(c);
 
 export default booyaKasha;
 `.trim();
