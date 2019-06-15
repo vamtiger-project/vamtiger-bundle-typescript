@@ -52,12 +52,12 @@ var typescriptConfiguration = {
     typescript: typescript
 };
 var plugins = [
-    rollupTypescript(typescriptConfiguration)
+    rollupTypescript(typescriptConfiguration),
+    babel(config.babel)
 ];
 if (args.has(types_1.CommandlineArgs.minify)) {
     plugins.push(uglify());
 }
-plugins.push(babel(config.babel));
 exports.default = (function (params) { return __awaiter(_this, void 0, void 0, function () {
     var entryFilePath, bundleFilePath, sourcemap, format, copySourceMap, copyBundleFilePath, bin, bundleFileSourceMapPath, copyBundleFileSourceMapPath, bundleName, bundleConfiguration, exportConfigurations, copyFileParams, copyFileSourceMapParams, bundle, exportBundle, exportBundleText;
     return __generator(this, function (_a) {

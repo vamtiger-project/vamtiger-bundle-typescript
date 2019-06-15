@@ -1,6 +1,6 @@
 {
     "name": "vamtiger-bundle-typescript",
-    "version": "0.0.31",
+    "version": "0.0.32-0",
     "description": "Bundle typescript source into a single file.",
     "main": "build",
     "types": "build/types/index.d.ts",
@@ -45,7 +45,6 @@
     "dependencies": {
         "@babel/core": "^7.4.5",
         "@babel/plugin-transform-destructuring": "^7.4.4",
-        "babel-minify": "^0.5.0",
         "babel-plugin-transform-es2015-destructuring": "^6.23.0",
         "rollup": "^0.56.5",
         "rollup-plugin-babel": "^4.3.2",
