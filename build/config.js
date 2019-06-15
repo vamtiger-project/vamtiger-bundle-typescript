@@ -1,13 +1,13 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.transformDestructuring = require("@babel/plugin-transform-destructuring").default;
-console.log(exports.transformDestructuring);
-;
+exports.transformDestructuring = require('@babel/plugin-transform-destructuring').default;
+exports.transformEs2015Destructuring = require('babel-plugin-transform-es2015-destructuring');
 exports.babel = {
     exclude: 'node_modules/**',
     plugins: [
         exports.transformDestructuring,
-        { "useBuiltIns": true }
+        exports.transformEs2015Destructuring,
+        { 'useBuiltIns': true }
     ]
 };
 //# sourceMappingURL=config.js.map
