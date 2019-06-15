@@ -59,7 +59,7 @@ if (args.has(types_1.CommandlineArgs.minify)) {
     plugins.push(uglify());
 }
 exports.default = (function (params) { return __awaiter(_this, void 0, void 0, function () {
-    var entryFilePath, bundleFilePath, sourcemap, format, copySourceMap, copyBundleFilePath, bin, bundleFileSourceMapPath, copyBundleFileSourceMapPath, bundleName, bundleConfiguration, exportConfigurations, copyFileParams, copyFileSourceMapParams, bundle, exportBundle, exportBundleText;
+    var entryFilePath, bundleFilePath, sourcemap, format, copySourceMap, copyBundleFilePath, bin, bundleFileSourceMapPath, copyBundleFileSourceMapPath, bundleName, bundleConfiguration, exportConfigurations, copyFileParams, copyFileSourceMapParams, bundle, l, exportBundle, exportBundleText;
     return __generator(this, function (_a) {
         switch (_a.label) {
             case 0:
@@ -97,31 +97,35 @@ exports.default = (function (params) { return __awaiter(_this, void 0, void 0, f
                 return [4 /*yield*/, rollup_1.rollup(bundleConfiguration)];
             case 1:
                 bundle = _a.sent();
-                return [4 /*yield*/, bundle.write(exportConfigurations)];
+                return [4 /*yield*/, bundle.generate(exportConfigurations)];
             case 2:
-                exportBundle = _a.sent();
-                if (!copyFileParams) return [3 /*break*/, 4];
-                return [4 /*yield*/, vamtiger_copy_file_1.default(copyFileParams)];
+                l = _a.sent();
+                console.log(l.code);
+                return [4 /*yield*/, bundle.write(exportConfigurations)];
             case 3:
-                _a.sent();
-                _a.label = 4;
+                exportBundle = _a.sent();
+                if (!copyFileParams) return [3 /*break*/, 5];
+                return [4 /*yield*/, vamtiger_copy_file_1.default(copyFileParams)];
             case 4:
-                if (!copyFileSourceMapParams) return [3 /*break*/, 6];
-                return [4 /*yield*/, vamtiger_copy_file_1.default(copyFileSourceMapParams)];
-            case 5:
                 _a.sent();
-                _a.label = 6;
+                _a.label = 5;
+            case 5:
+                if (!copyFileSourceMapParams) return [3 /*break*/, 7];
+                return [4 /*yield*/, vamtiger_copy_file_1.default(copyFileSourceMapParams)];
             case 6:
-                if (!bin) return [3 /*break*/, 9];
-                return [4 /*yield*/, vamtiger_get_file_text_1.default(bundleFilePath)];
+                _a.sent();
+                _a.label = 7;
             case 7:
+                if (!bin) return [3 /*break*/, 10];
+                return [4 /*yield*/, vamtiger_get_file_text_1.default(bundleFilePath)];
+            case 8:
                 exportBundleText = _a.sent();
                 exportBundleText = types_1.Shebang.node + "\n" + exportBundleText;
                 return [4 /*yield*/, vamtiger_create_file_1.default(bundleFilePath, exportBundleText)];
-            case 8:
+            case 9:
                 _a.sent();
-                _a.label = 9;
-            case 9: return [2 /*return*/, true];
+                _a.label = 10;
+            case 10: return [2 /*return*/, true];
         }
     });
 }); });
