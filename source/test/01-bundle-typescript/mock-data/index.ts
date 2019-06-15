@@ -3,6 +3,12 @@ import kasha from './kasha';
 
 const booyaKasha = \`Booya \${kasha}\`;
 
+const a = {b: 'b'};
+
+const { b } = a;
+
+console.log(b);
+
 export default booyaKasha;
 `.trim();
 

@@ -1,4 +1,3 @@
-import { PathLike } from 'fs';
 import * as typescript from 'typescript';
 import { rollup as createBundle } from 'rollup';
 import Args = require('vamtiger-argv');
@@ -14,7 +13,9 @@ import {
     TypescriptConfigurationModule as TsModule,
     Shebang
 } from './types';
+import * as config from './config';
 
+const babel = require('rollup-plugin-babel');
 const rollupTypescript = require('rollup-plugin-typescript');
 const uglify = require('rollup-plugin-uglify');
 const args = new Args();
@@ -22,7 +23,8 @@ const typescriptConfiguration = {
     typescript
 };
 const plugins = [
-    rollupTypescript(typescriptConfiguration)
+    rollupTypescript(typescriptConfiguration),
+    babel(config.babel)
 ];
 
 if (args.has(CommandlineArgs.minify)) {
