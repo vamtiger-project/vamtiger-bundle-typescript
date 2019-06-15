@@ -50,14 +50,18 @@ const bundleParams = {
     bin
 };
 
-if (!entryFilePath) {
-    throw new Error('No entry file specified');
-} else if(!bundleFilePath) {
-    throw new Error('No bundle file specified');
-} else if(watch) {
-    watchFolder(entryFolderPath, watchOptions, createBundle);
-} else {
-    createBundle();
+try {
+    if (!entryFilePath) {
+        throw new Error('No entry file specified');
+    } else if(!bundleFilePath) {
+        throw new Error('No bundle file specified');
+    } else if(watch) {
+        watchFolder(entryFolderPath, watchOptions, createBundle);
+    } else {
+        createBundle()
+    }
+} catch(error) {
+    handleError(error);
 }
 
 async function createBundle(eventType?: string, fileName?: string) {
@@ -79,4 +83,11 @@ async function createBundle(eventType?: string, fileName?: string) {
     if (generateTypescriptBundle) {
         bundleTypescript(bundleParams);
     }
+}
+
+function handleError(error: Error) {
+    console.log(error);
+    console.error(error.message);
+    console.error(error.stack);
+    console.log('*'.repeat(10));
 }
