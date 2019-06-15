@@ -45,7 +45,6 @@
     "dependencies": {
         "@babel/core": "^7.4.5",
         "@babel/plugin-transform-destructuring": "^7.4.4",
-        "babel-minify": "^0.5.0",
         "babel-plugin-transform-es2015-destructuring": "^6.23.0",
         "rollup": "^0.56.5",
         "rollup-plugin-babel": "^4.3.2",
